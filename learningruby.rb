@@ -6,52 +6,62 @@
   :colors => ["black", "green", "white"]
 }
 puts @person
+module Detail
+	def detail_set
+		"It has Detail:"+@detail.join(',')
+	end
+end
+
 class Animal
-	attr_accessor :detail
+	
 	def initialize
 		@name = "DigDok"
 		@age = 20
 		@sex = "male"
 	end
 end
-module Detail
-	def detail_set
-		@detail.join(',')
+
+class Bird < Animal
+	include Detail
+	def initialize
+		super
+		@detail = {
+			:wing => 2,
+			:legs => 2
+		}
 	end
-		class Bird < Animal
-			def initialize
-				@detail = {
-					:wing => 2,
-					:legs => 2
-				}
-			end
-		end
+end
 
-		class Mammal < Animal
-			def initialize
-				@detail = {
-					:legs => 4,
-					:babyfood => "Milk",
-					:special_ability => nil
-				}
-			end
-		end
+class Mammal < Animal
+	include Detail
+	def initialize
+		super
+		@detail = {
+			:legs => 4,
+			:babyfood => "Milk",
+			:special_ability => nil
+		}
+	end
+end
 
-		class Cat < Animal
-			def initialize
-				@detail = {
-					:sharpclaws => "very Sharp",
-					:special_ability => "Climb a tree"
-				}
-			end
-		end
+class Cat < Animal
+	include Detail
+	def initialize
+		super
+		@detail = {
+			:sharpclaws => "very Sharp",
+			:special_ability => "Climb a tree"
+		}
+	end
+end
 
-		class Dog < Animal
-			def initialize
-				@detail = {
-					:best_friend => "Human",
-					:special_ability => "Bark"
-				}
-			end
-		end
+class Dog < Animal
+	include Detail
+	def initialize
+		super
+		@detail = {
+			:best_friend => "Human",
+			:special_ability => "Bark"
+		}
+	end
 end

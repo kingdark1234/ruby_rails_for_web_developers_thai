@@ -65,3 +65,20 @@ class Dog < Animal
 		}
 	end
 end
+
+class Zoo
+	An = Animal.new
+	include Detail
+	def initialize
+		@An = Animal
+		case zoo
+			when animals 
+				@An.each{|ani| puts ani}
+			when cats
+				@An[Cat].each{|cat| puts cat}
+			when search
+				@An
+				@An.each{|se| puts se}
+		end
+	end
+end

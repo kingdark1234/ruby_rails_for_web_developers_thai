@@ -8,6 +8,8 @@
 puts @person
 module Detail
 	attr_accessor :special_ability
+	attr_accessor :claw_sharpness
+	attr_accessor :best_friend
 end
 
 class Animal
@@ -43,6 +45,7 @@ class Cat < Mammal
 		super
 		@claw_sharpness = options[:claw_sharpness]
 		@special_ability = options[:special_ability]
+
 	end
 end
 

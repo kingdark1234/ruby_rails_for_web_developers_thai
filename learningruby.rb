@@ -8,17 +8,13 @@
 puts @person
 module Detail
 	attr_accessor :special_ability
-	def detail_set
-		"It has Detail:"+@detail.join(',')
-	end
 end
 
 class Animal
-	
-	def initialize
-		@name = "DigDok"
-		@age = 20
-		@sex = "male"
+	def initialize(options = {})
+		@name = options[:name]
+		@age = option[:age]
+		@sex = option[:sex]
 	end
 end
 
@@ -34,35 +30,42 @@ class Bird < Animal
 end
 
 class Mammal < Animal
-	include Detail
-	def initialize
+	def initialize(options = {})
 		super
-		@detail = {
-			:legs => 4,
-			:babyfood => "Milk",
-			:special_ability => nil
-		}
+			@legs = 4
+			@babyfood = [:babyfood]
 	end
 end
 
-class Cat < Animal
+class Cat < Mammal
 	include Detail
-	def initialize
+	def initialize(options = {})
 		super
-		@detail = {
-			:sharpclaws => "very Sharp",
-			:special_ability => "Climb a tree"
-		}
+		@claw_sharpness = options[:claw_sharpness]
+		@special_ability = options[:special_ability]
 	end
 end
 
-class Dog < Animal
+class Dog < Mammal
 	include Detail
-	def initialize
+	def initialize(options = {})
 		super
-		@detail = {
-			:best_friend => "Human",
-			:special_ability => "Bark"
-		}
+		@best_friend = option[:best_friend]
+		@special_ability = options[:special_ability]
+	end
+end
+
+class Zoo
+	attr_reader :animals
+	def initialize(animals = [])
+		@animals = animals
+	end
+
+	def cats
+ 		@animals.select { |a| a.kind_of?(Cat) }
+	end
+
+	def seach(type,value)
+		@animals.select { |a| a.send("#{type}") == value }
 	end
 end

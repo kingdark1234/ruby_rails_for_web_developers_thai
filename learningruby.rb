@@ -7,6 +7,7 @@
 }
 puts @person
 module Detail
+	attr_accessor :special_ability
 	def detail_set
 		"It has Detail:"+@detail.join(',')
 	end

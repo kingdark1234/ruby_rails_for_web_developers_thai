@@ -1,0 +1,14 @@
+<div class='navbar navbar-inverse'>
+  <div class='navbar-inner'>
+    <div class='container'>
+        <a class='brand' href='http://localhost:3000/pages'>MENU</a>
+      <ul class='nav'>
+         <li class="<%= active_status_for 'sign_up' %>">
+          <%= link_to "Register", new_user_registration_path%>
+      </ul>
+      <ul class='nav pull-right'>
+       <%= render 'layouts/accout' %>
+      </ul>
+    </div>
+  </div>
+</div>

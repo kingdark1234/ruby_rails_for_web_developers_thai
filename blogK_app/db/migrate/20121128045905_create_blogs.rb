@@ -6,8 +6,6 @@ class CreateBlogs < ActiveRecord::Migration
       t.text :body
 
       t.timestamps
-
-      t.timestamps
     end
   end
 end

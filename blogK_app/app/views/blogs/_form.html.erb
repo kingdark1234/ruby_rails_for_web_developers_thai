@@ -1,0 +1,31 @@
+<h1>New Blog</h1>
+<div style="margin-top: 20px;">
+<%= form_for @blog, html: { class: 'form-horizontal' } do |f| %>
+<%= render 'shared/error_log', target: @blog %>
+  <div class='control-group'>
+    <%= f.label :group, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.select :group, [['Talk Anything','Talk Anything'],
+                                ['Question','Question'],
+                                ['Coding','Coding'],
+                                ['Guru Club','Guru Club'],
+                                ['Vip Zone','Vip Zone']],class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :title, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :title, class: 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :body, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :body, class: 'input-xxlarge', size: '10x10' %>
+    </div>
+  </div>
+  <div class='form-actions'>
+    <%= f.submit "Create Blog", class: 'btn btn-success' %>
+  </div>
+<% end %>
+</div>

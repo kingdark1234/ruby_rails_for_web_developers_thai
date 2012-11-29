@@ -162,6 +162,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.1.1.0)
   carrierwave
+  celluloid
   coffee-rails (~> 3.2.1)
   compass-rails
   devise

@@ -1,10 +1,13 @@
 BlogKApp::Application.routes.draw do
 
   devise_for :users
+  resources :contact
 
-  resources :pages
-  resources :blogs
+  resources :pages 
+  resources :blogs do
+  		resources :comments, except: [:show]
+  end
  
-  match '/:id' => 'high_voltage/pages#show', :as => :static, :via => :get
-  root :to => 'high_voltage/pages#show', :id => 'home'
+  
+  root :to => 'pages#index'
 end

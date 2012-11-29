@@ -7,9 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-       <%= render 'layouts/navigation' %>
-       <div class='container'>                  
-<%= yield %>
-</div>
+    <%= render 'layouts/navigation' %>   
+		<div class='row'>
+		    <div class='span12'>
+		        <div class="container-fluid">
+		        	<h1 style="margin-left: 185px;" >BlogKing</h1>
+		    	    <div class="row-fluid" style="margin-left: 210px;">
+		    		    <div class="span2">
+		                    <body class="<%= body_class %>">
+		                        <%= render 'layouts/group' %>                 	                        
+		                    </body>
+		    		    </div>
+		    		  	<div class="span10">
+		    		  		<div class='container'> 
+    							<div class="hero-unit">
+        							<%= yield %>
+     							</div>
+     						</div>
+						</div>
+		            </div>
+		    	</div>
+		    </div>
+		</div>
+		
+
 </body>
 </html>

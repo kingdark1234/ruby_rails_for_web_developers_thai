@@ -1,0 +1,11 @@
+<h1><%= @blog.title %></h1>
+
+<div>
+  <%= @blog.body %>
+</div>
+
+<div id='comments'>
+  <%= render @blog.comments %>
+  <%= render_comment_form_for @blog %>
+  <%= link_to "Sign In", new_user_session_path unless current_user %>
+</div>

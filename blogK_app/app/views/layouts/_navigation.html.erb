@@ -1,0 +1,23 @@
+<div class='navbar navbar-inverse'>
+  <div class='navbar-inner'>
+    <div class='container'>
+        <%= link_to 'MENU', root_path, class: 'brand' %>
+            <ul class='nav'>        
+                <li class="<%= active_status_for 'sing_up' %>">
+                    <%= link_to "Register", new_user_registration_path%> 
+                </li>
+                <li class="dropdown">
+                    <%= link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown'} do %>
+                      My Blogs <b class='caret'></b>
+                    <% end %>
+                    <ul class="dropdown-menu">
+                        <li class="<%= active_status_for 'blogs/new' %>"> <%= link_to "New Blog", new_blog_path %></li>
+                    </ul>
+                </li>
+      </ul>
+      <ul class='nav pull-right'>
+       <%= render 'layouts/accout' %>
+      </ul>
+    </div>
+  </div>
+</div>

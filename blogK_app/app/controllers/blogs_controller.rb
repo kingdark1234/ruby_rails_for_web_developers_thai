@@ -1,6 +1,5 @@
 class BlogsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :load_scope
   respond_to :js, :html, :json
 
 	def index
@@ -19,22 +18,22 @@ class BlogsController < ApplicationController
 	end
 
 	def new
-		@blog = @blogtable.blogs.build
+		@blog = Blog.new
 	end
 
 	def update
 		@blog = get_blog
     	if @blog.user == current_user and @blog.update_attributes(params[:blog])
-      		redirect_to @blogtable
+      		redirect_to blogs_path
     	else
       		render :edit
     	end
 	end
 
 	def create
-	@blog = @blogtable.blogs.build(params[:blog])
+	@blog = Blog.new(params[:blog])
     	if @blog.user = current_user and @blog.save
-     	 	redirect_to(@blogtable)
+     	 	redirect_to(blogs_path)
     	else
       		render :new 
     	end
@@ -42,26 +41,14 @@ class BlogsController < ApplicationController
 
 	def destroy
 	@blog = get_blog
-		if @blog.user == current_user and @blog.destroy
+		if @blog.user == current_user
 	    	flash[:notice] = "Blog could not be deleted" unless @blog.destroy
-	    	redirect_to @blogtable
+	    	redirect_to blogs_path
 		end
 	end
 private
-  def load_scope
-  	@blogtable = get_blogtable
-  end
-
-  # def get_blog
-  #   Blog.find(params[:id])
-  # end
-
-  def get_blog
-  	@blogtable.blogs.find(params[:id])
-  end
-
-  def get_blogtable
-  	resource, id = request.path.split('/')[1, 2]
-    resource.singularize.classify.constantize.find(id)
-  end
+   def get_blog
+     Blog.find(params[:id])
+   end
 end
+

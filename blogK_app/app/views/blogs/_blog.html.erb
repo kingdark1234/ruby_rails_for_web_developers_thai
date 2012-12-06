@@ -1,0 +1,14 @@
+<%= content_tag_for :li, blog, class: 'row-fluid' do %>
+  <span class='span9' style="margin-top: -15px;">
+    <%= link_to blog.title+" Group:"+blog.group, blog %> 
+  </span>
+  <span class='span3' style="margin-top: -15px;"> 	
+    <span class='pull-right'>
+    	<%= blog.user rescue 'no user' %>
+    	<% if blog.user == current_user %>
+    		<%= link_to "Edit", edit_blog_path(blog), class: 'btn btn-mini' %> 
+			<%= link_to "Delete", blog_path(blog), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-mini btn-danger' %>
+		<% end %>
+    </span>
+  </span>
+<% end %>

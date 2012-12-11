@@ -15,7 +15,7 @@ describe "BlogFeatures" do
     it "should allow user to create new blog" do 
       visit new_blog_path
       within "#new_blog" do 
-        select "Talk Anything", from: "blog_group"
+        select 1, from: "blog_group_id"
         fill_in "blog_title", with: "Title of a new blog"
         fill_in "blog_body", with: "Body of new blog"
         click_button "Create Blog"

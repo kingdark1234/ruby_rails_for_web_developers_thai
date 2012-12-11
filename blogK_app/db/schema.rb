@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201032840) do
+ActiveRecord::Schema.define(:version => 20121207084916) do
 
   create_table "blogs", :force => true do |t|
-    t.string   "group"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "blog_type"
     t.integer  "user_id"
+    t.integer  "group_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(:version => 20121201032840) do
     t.string   "commentable_type"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "group_name"
+    t.string   "group_permission"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "caption"
+    t.string   "file"
+    t.integer  "user_id"
+    t.boolean  "processing"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

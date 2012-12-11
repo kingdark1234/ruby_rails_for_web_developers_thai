@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   respond_to :js, :html, :json
 
 	def index
-		@blogs = Blog.all
+		@blogs = if params[:group_name] then  Blog.by_group(params[:group_name]) else Blog.scoped end
 	end
 
 	def show

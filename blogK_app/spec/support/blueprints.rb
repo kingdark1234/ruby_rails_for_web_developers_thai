@@ -13,8 +13,14 @@ Comment.blueprint do
   user { object.user || User.make! }
 end
 
+Photo.blueprint do 
+  caption { "Test Caption #{sn} "}
+  processing { false }
+  user { object.user || User.make! }
+end
+
 Blog.blueprint do 
-  group { "Test Blog Talk Anything" }
+  group_id { 1 }
   title { "Test Blog #{sn}" }
   body  { "Test body Testing...Blog" }
 end

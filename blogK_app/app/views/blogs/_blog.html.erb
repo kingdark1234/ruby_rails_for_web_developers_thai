@@ -1,6 +1,6 @@
 <%= content_tag_for :li, blog, class: 'row-fluid' do %>
   <span class='span9' style="margin-top: -15px;">
-    <%= link_to blog.title+" Group:"+blog.group, blog %> 
+    <%= action_blog_for blog%> 
   </span>
   <span class='span3' style="margin-top: -15px;"> 	
     <span class='pull-right'>

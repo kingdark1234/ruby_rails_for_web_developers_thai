@@ -9,6 +9,7 @@ describe PhotosController do
 
   it "should render json for photo" do 
     get :show, id: photo.id, format: :json
+    puts response.body.inspect
     %w[caption processing].each do |field|
       response.body.should have_json_path(field)
     end

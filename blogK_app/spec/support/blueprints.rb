@@ -20,9 +20,13 @@ Photo.blueprint do
 end
 
 Blog.blueprint do 
-  group_id { 1 }
+  group { object.group || Group.make! }
   title { "Test Blog #{sn}" }
   body  { "Test body Testing...Blog" }
+end
+
+Group.blueprint do
+  group_name { "Talk Anything #{sn}" }
 end
 
 User.blueprint do 

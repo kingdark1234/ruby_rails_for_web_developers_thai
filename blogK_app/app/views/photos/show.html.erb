@@ -1,0 +1,19 @@
+<%= div_for @photo, data: { url: photo_path(@photo), processing: @photo.processing } do %>
+<h1><%= @photo.caption %></h1>
+<div class='row'>
+  <span class='span12'>
+    <%= link_to "Edit", edit_photo_path(@photo), class: 'btn pull-right' if @photo.user == current_user %>
+  </span>
+</div>
+<div class='row'>
+  <span class='span12' style="margin-top: 10px; margin-bottom: 10px;">
+    <%= image_tag @photo.file.url %>
+  </span>
+</div>
+
+<div id='comments'>
+  <%= render @photo.comments, commentable: @photo %>
+  <%= render_comment_form_for @photo %>
+  <%= render 'shared/register' unless current_user %>
+</div>
+<% end %>

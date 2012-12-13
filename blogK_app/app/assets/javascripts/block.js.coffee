@@ -1,0 +1,2 @@
+window.BlogKApp =
+  helpers: {}

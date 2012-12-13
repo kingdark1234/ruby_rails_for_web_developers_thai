@@ -1,0 +1,6 @@
+<% if current_user %>
+  <li class="<%= active_status_for 'users/edit' %>"><%= link_to current_user, edit_user_registration_path %>
+  <li class="<%= active_status_for 'sign_out' %>"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <li class="<%= active_status_for 'sign_in' %>"><%= link_to "Sign In", new_user_session_path %>
+<% end %>
